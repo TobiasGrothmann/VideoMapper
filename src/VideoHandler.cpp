@@ -15,7 +15,7 @@ bool VideoHandler::load(const string& pathToVideoFile)
     }
     catch (ci::Exception &exc)
     {
-        console() << "Exception caught trying to load the movie from path: " << pathToVideoFile << ", what: " << exc.what() << std::endl;
+        console() << "Exception caught trying to load the video from path: " << pathToVideoFile << ", what: " << exc.what() << std::endl;
         video.reset();
         return false;
     }
@@ -27,10 +27,8 @@ bool VideoHandler::load(const string& pathToVideoFile)
 
 void VideoHandler::update()
 {
-    if (video)
-    {
-        frameTexture = video->getTexture();
-    }
+    if (!video) return;
+    frameTexture = video->getTexture();
 }
 
 void VideoHandler::draw()
@@ -46,6 +44,7 @@ void VideoHandler::draw()
 
 void VideoHandler::handleResize()
 {
+    if (!video) return;
     const vec2 windowSize = getWindowSize();
     
     videoRenderSize = video->getSize();
@@ -64,7 +63,33 @@ void VideoHandler::handleResize()
 void VideoHandler::setLooping(bool shouldLoop)
 {
     looping = shouldLoop;
+    if (!video) return;
     video->setLoop(shouldLoop);
+}
+
+void VideoHandler::seekToFraction(float fraction /*0.0 to 1.0*/)
+{
+    if (!video) return;
+    video->seekToTime(video->getDuration() * fraction);
+}
+
+void VideoHandler::seekToSeconds(float seconds)
+{
+    if (!video) return;
+    video->seekToTime(seconds);
+}
+
+void VideoHandler::setPlaying(bool shouldPlay)
+{
+    if (!video) return;
+    if (shouldPlay && !video->isPlaying())
+    {
+        video->play();
+    }
+    else if (video->isPlaying())
+    {
+        video->stop();
+    }
 }
 
 bool VideoHandler::isLoaded() const
@@ -75,6 +100,17 @@ bool VideoHandler::isLoaded() const
 bool VideoHandler::isLooping() const
 {
     return looping;
+}
+
+bool VideoHandler::isPlaying() const
+{
+    return video && video->isPlaying();
+}
+
+float VideoHandler::getPlaybackSeconds() const
+{
+    if (!video) return 0.0;
+    return video->getCurrentTime();
 }
 
 vec2 VideoHandler::getVideoRenderSize() const

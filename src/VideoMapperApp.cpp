@@ -57,7 +57,7 @@ void VideoMapperApp::setup()
         warps.push_back(WarpPerspective::create());
     }
     
-    // load movie
+    // load video
     selectAndLoadNewVideo();
     
     warps[0]->setSize(videoHandler.getVideoRenderSize());
@@ -70,17 +70,60 @@ void VideoMapperApp::cleanup()
 
 void VideoMapperApp::keyDown(KeyEvent event)
 {
-    if (event.getChar() == 'o')
-    {
-        selectAndLoadNewVideo();
-    }
-    
     if (!Warp::handleKeyDown(warps, event))
     {
         switch (event.getCode())
         {
-            case KeyEvent::KEY_ESCAPE:
-                quit();
+            // video playback
+            case KeyEvent::KEY_RIGHT:
+                videoHandler.seekToSeconds(videoHandler.getPlaybackSeconds() + 5);
+                break;
+            case KeyEvent::KEY_LEFT:
+                videoHandler.seekToSeconds(videoHandler.getPlaybackSeconds() - 5);
+                break;
+            case KeyEvent::KEY_l:
+                videoHandler.seekToSeconds(videoHandler.getPlaybackSeconds() + 10);
+                break;
+            case KeyEvent::KEY_j:
+                videoHandler.seekToSeconds(videoHandler.getPlaybackSeconds() - 10);
+                break;
+            case KeyEvent::KEY_SPACE:
+            case KeyEvent::KEY_k:
+                videoHandler.setPlaying(!videoHandler.isPlaying());
+                break;
+            case KeyEvent::KEY_0:
+                videoHandler.seekToFraction(0.0f);
+                break;
+            case KeyEvent::KEY_1:
+                videoHandler.seekToFraction(0.1f);
+                break;
+            case KeyEvent::KEY_2:
+                videoHandler.seekToFraction(0.2f);
+                break;
+            case KeyEvent::KEY_3:
+                videoHandler.seekToFraction(0.3f);
+                break;
+            case KeyEvent::KEY_4:
+                videoHandler.seekToFraction(0.4f);
+                break;
+            case KeyEvent::KEY_5:
+                videoHandler.seekToFraction(0.5f);
+                break;
+            case KeyEvent::KEY_6:
+                videoHandler.seekToFraction(0.6f);
+                break;
+            case KeyEvent::KEY_7:
+                videoHandler.seekToFraction(0.7f);
+                break;
+            case KeyEvent::KEY_8:
+                videoHandler.seekToFraction(0.8f);
+                break;
+            case KeyEvent::KEY_9:
+                videoHandler.seekToFraction(0.9f);
+                break;
+            // other
+            case KeyEvent::KEY_o:
+                selectAndLoadNewVideo();
                 break;
             case KeyEvent::KEY_f:
                 setFullScreen(!isFullScreen());
@@ -141,13 +184,13 @@ void VideoMapperApp::fileDrop(FileDropEvent event)
 
 void VideoMapperApp::selectAndLoadNewVideo()
 {
-    const fs::path moviePath = getOpenFilePath();
-    if (!moviePath.empty())
+    const fs::path videoFilePath = getOpenFilePath();
+    if (!videoFilePath.empty())
     {
-        bool loadingSuccess = videoHandler.load(moviePath);
+        bool loadingSuccess = videoHandler.load(videoFilePath);
         if (!loadingSuccess)
         {
-            cout << "Error: failed to load video selected at: " << moviePath << endl;
+            cout << "Error: failed to load video selected at: " << videoFilePath << endl;
         }
     }
 }

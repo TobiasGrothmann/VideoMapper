@@ -15,9 +15,14 @@ public:
     void handleResize();
     
     void setLooping(bool shouldLoop);
+    void seekToFraction(float fraction /*0.0 to 1.0*/);
+    void seekToSeconds(float seconds);
+    void setPlaying(bool shouldPlay);
     
     bool isLoaded() const;
     bool isLooping() const;
+    bool isPlaying() const;
+    float getPlaybackSeconds() const;
     cinder::vec2 getVideoRenderSize() const;
     
 private:
