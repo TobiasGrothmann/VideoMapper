@@ -16,17 +16,15 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00B9955A1B128DF400A5C623 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995581B128DF400A5C623 /* IOKit.framework */; };
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
-		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		722B9A48BA0741E9AB010CAE /* WarpPerspectiveBilinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CED1E8F80AD48568E03F931 /* WarpPerspectiveBilinear.cpp */; };
 		23016A0664AF4436869369F8 /* WarpPerspective.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F99CA8B5D4724A0798870B6B /* WarpPerspective.cpp */; };
-		C7CAD6F1EB014A0FB1634AC5 /* WarpBilinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1D07E65E8984C43A7809125 /* WarpBilinear.cpp */; };
 		2E9EA91CAB934126B3FF123C /* Warp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8463076B234D9F9D1133B8 /* Warp.cpp */; };
-		132A57162B4B4BDBB877D04B /* Warp.h in Headers */ = {isa = PBXBuildFile; fileRef = EFE33C34241B4183A6497751 /* Warp.h */; };
-		1F22DB2F06A048F198149410 /* VideoMapper_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = D1E8F4ECAAA64EA99F4B7206 /* VideoMapper_Prefix.pch */; };
-		8F6AB5031E4A4A90BEB6F75F /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = FE2999CE6B934C2288617B39 /* CinderApp.icns */; };
-		0B5C1C1B2BB4457BBB3B9569 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 0358D18677324025B69DE13D /* Resources.h */; };
+		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		722B9A48BA0741E9AB010CAE /* WarpPerspectiveBilinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CED1E8F80AD48568E03F931 /* WarpPerspectiveBilinear.cpp */; };
+		84026D572840BB8F001D6E45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84026D562840BB8F001D6E45 /* Images.xcassets */; };
+		84B8424C283D51E00071F5C3 /* VideoHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B8424A283D51E00071F5C3 /* VideoHandler.cpp */; };
 		8590B6FD398C4634B20EA1CD /* VideoMapperApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30D3D1DE39D24A0CA0BCF9B6 /* VideoMapperApp.cpp */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C7CAD6F1EB014A0FB1634AC5 /* WarpBilinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1D07E65E8984C43A7809125 /* WarpBilinear.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,21 +37,23 @@
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		00B995581B128DF400A5C623 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		00B995591B128DF400A5C623 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
+		0358D18677324025B69DE13D /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1CED1E8F80AD48568E03F931 /* WarpPerspectiveBilinear.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = WarpPerspectiveBilinear.cpp; path = "../blocks/Cinder-Warping/src/WarpPerspectiveBilinear.cpp"; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		30D3D1DE39D24A0CA0BCF9B6 /* VideoMapperApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = VideoMapperApp.cpp; path = ../src/VideoMapperApp.cpp; sourceTree = "<group>"; };
+		4A72990D78234A808BB5A1A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		84026D562840BB8F001D6E45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VideoMapper/Images.xcassets; sourceTree = "<group>"; };
+		84B8424A283D51E00071F5C3 /* VideoHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = VideoHandler.cpp; path = ../src/VideoHandler.cpp; sourceTree = "<group>"; };
+		84B8424B283D51E00071F5C3 /* VideoHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = VideoHandler.hpp; path = ../src/VideoHandler.hpp; sourceTree = "<group>"; };
+		8A8463076B234D9F9D1133B8 /* Warp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = Warp.cpp; path = "../blocks/Cinder-Warping/src/Warp.cpp"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* VideoMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30D3D1DE39D24A0CA0BCF9B6 /* VideoMapperApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/VideoMapperApp.cpp; sourceTree = "<group>"; name = VideoMapperApp.cpp; };
-		0358D18677324025B69DE13D /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		FE2999CE6B934C2288617B39 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; name = CinderApp.icns; };
-		4A72990D78234A808BB5A1A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		D1E8F4ECAAA64EA99F4B7206 /* VideoMapper_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = VideoMapper_Prefix.pch; sourceTree = "<group>"; name = VideoMapper_Prefix.pch; };
-		EFE33C34241B4183A6497751 /* Warp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "../blocks/Cinder-Warping/include/Warp.h"; sourceTree = "<group>"; name = Warp.h; };
-		8A8463076B234D9F9D1133B8 /* Warp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = "../blocks/Cinder-Warping/src/Warp.cpp"; sourceTree = "<group>"; name = Warp.cpp; };
-		F1D07E65E8984C43A7809125 /* WarpBilinear.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = "../blocks/Cinder-Warping/src/WarpBilinear.cpp"; sourceTree = "<group>"; name = WarpBilinear.cpp; };
-		F99CA8B5D4724A0798870B6B /* WarpPerspective.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = "../blocks/Cinder-Warping/src/WarpPerspective.cpp"; sourceTree = "<group>"; name = WarpPerspective.cpp; };
-		1CED1E8F80AD48568E03F931 /* WarpPerspectiveBilinear.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = "../blocks/Cinder-Warping/src/WarpPerspectiveBilinear.cpp"; sourceTree = "<group>"; name = WarpPerspectiveBilinear.cpp; };
+		D1E8F4ECAAA64EA99F4B7206 /* VideoMapper_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = VideoMapper_Prefix.pch; sourceTree = "<group>"; };
+		EFE33C34241B4183A6497751 /* Warp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Warp.h; path = "../blocks/Cinder-Warping/include/Warp.h"; sourceTree = "<group>"; };
+		F1D07E65E8984C43A7809125 /* WarpBilinear.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = WarpBilinear.cpp; path = "../blocks/Cinder-Warping/src/WarpBilinear.cpp"; sourceTree = "<group>"; };
+		F99CA8B5D4724A0798870B6B /* WarpPerspective.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = WarpPerspective.cpp; path = "../blocks/Cinder-Warping/src/WarpPerspective.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +78,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				DDC14BE282544CC0A2D5194B /* Cinder-Warping */,
+			);
+			name = Blocks;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				30D3D1DE39D24A0CA0BCF9B6 /* VideoMapperApp.cpp */,
+				84B8424A283D51E00071F5C3 /* VideoHandler.cpp */,
+				84B8424B283D51E00071F5C3 /* VideoHandler.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -134,42 +144,6 @@
 			name = VideoMapper;
 			sourceTree = "<group>";
 		};
-		C8182E2720B24C8D9C9105C5 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				EFE33C34241B4183A6497751 /* Warp.h */,
-			);
-			name = include;
-			sourceTree = "<group>";
-		};
-		FF1C460BB16F459298301D21 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				8A8463076B234D9F9D1133B8 /* Warp.cpp */,
-				F1D07E65E8984C43A7809125 /* WarpBilinear.cpp */,
-				F99CA8B5D4724A0798870B6B /* WarpPerspective.cpp */,
-				1CED1E8F80AD48568E03F931 /* WarpPerspectiveBilinear.cpp */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		DDC14BE282544CC0A2D5194B /* Cinder-Warping */ = {
-			isa = PBXGroup;
-			children = (
-				C8182E2720B24C8D9C9105C5 /* include */,
-				FF1C460BB16F459298301D21 /* src */,
-			);
-			name = "Cinder-Warping";
-			sourceTree = "<group>";
-		};
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				DDC14BE282544CC0A2D5194B /* Cinder-Warping */,
-			);
-			name = Blocks;
-			sourceTree = "<group>";
-		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +156,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FE2999CE6B934C2288617B39 /* CinderApp.icns */,
+				84026D562840BB8F001D6E45 /* Images.xcassets */,
 				4A72990D78234A808BB5A1A2 /* Info.plist */,
 			);
 			name = Resources;
@@ -195,6 +169,34 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8182E2720B24C8D9C9105C5 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				EFE33C34241B4183A6497751 /* Warp.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		DDC14BE282544CC0A2D5194B /* Cinder-Warping */ = {
+			isa = PBXGroup;
+			children = (
+				C8182E2720B24C8D9C9105C5 /* include */,
+				FF1C460BB16F459298301D21 /* src */,
+			);
+			name = "Cinder-Warping";
+			sourceTree = "<group>";
+		};
+		FF1C460BB16F459298301D21 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8A8463076B234D9F9D1133B8 /* Warp.cpp */,
+				F1D07E65E8984C43A7809125 /* WarpBilinear.cpp */,
+				F99CA8B5D4724A0798870B6B /* WarpPerspective.cpp */,
+				1CED1E8F80AD48568E03F931 /* WarpPerspectiveBilinear.cpp */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,15 +225,25 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					8D1107260486CEB800E47090 = {
+						DevelopmentTeam = U9BR2395Q2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "VideoMapper" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				en,
+				fr,
+				de,
+				Base,
+				ja,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* VideoMapper */;
 			projectDirPath = "";
@@ -247,7 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F6AB5031E4A4A90BEB6F75F /* CinderApp.icns in Resources */,
+				84026D572840BB8F001D6E45 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8590B6FD398C4634B20EA1CD /* VideoMapperApp.cpp in Sources */,
+				84B8424C283D51E00071F5C3 /* VideoHandler.cpp in Sources */,
 				2E9EA91CAB934126B3FF123C /* Warp.cpp in Sources */,
 				C7CAD6F1EB014A0FB1634AC5 /* WarpBilinear.cpp in Sources */,
 				23016A0664AF4436869369F8 /* WarpPerspective.cpp in Sources */,
@@ -272,24 +285,32 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = U9BR2395Q2;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = VideoMapper_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = VideoMapper_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/macosx/$(CONFIGURATION)/libcinder.a\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.tobiasgrothmann.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = VideoMapper;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,25 +319,35 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = U9BR2395Q2;
 				GCC_FAST_MATH = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = VideoMapper_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = VideoMapper_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 0.0.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/macosx/$(CONFIGURATION)/libcinder.a\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.tobiasgrothmann.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = VideoMapper;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
@@ -327,20 +358,42 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = "../../../../git/Cinder";
+				CINDER_PATH = ../../../../git/Cinder;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = (
-					"\"$(CINDER_PATH)/include\" ../include",
-					"\"../blocks/Cinder-Warping/include\"",
-				);
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"../blocks/Cinder-Warping/include\"";
 			};
 			name = Debug;
 		};
@@ -348,18 +401,40 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = "../../../../git/Cinder";
+				CINDER_PATH = ../../../../git/Cinder;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = (
-					"\"$(CINDER_PATH)/include\" ../include",
-					"\"../blocks/Cinder-Warping/include\"",
-				);
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"../blocks/Cinder-Warping/include\"";
 			};
 			name = Release;
 		};

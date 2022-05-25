@@ -1,0 +1,15 @@
+
+.DS_Store
+
+xcode/build/
+
+xcode/VideoMapper.xcodeproj/project.xcworkspace/xcuserdata
+
+assets/warps.xml
+
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+assets/imgui.ini
