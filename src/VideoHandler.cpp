@@ -4,12 +4,23 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+VideoHandler::VideoHandler()
+    : looping(true)
+    , soundOn(false)
+{
+    videoScale[0] = 1.0f;
+    videoScale[1] = 1.0f;
+    videoOffset[0] = 0.5f;
+    videoOffset[1] = 0.5f;
+}
+
 bool VideoHandler::load(const string& pathToVideoFile)
 {
     try
     {
         video = qtime::MovieGl::create(pathToVideoFile);
-        setLooping(looping);
+        loopingUpdated();
+        soundOnUpdated();
         video->play();
         console() << "Playing: " << video->isPlaying() << std::endl;
     }
@@ -35,13 +46,14 @@ void VideoHandler::draw()
 {
     if (frameTexture)
     {
-//            Rectf centeredRect = Rectf(mFrameTexture->getBounds()).getCenteredFit(getWindowBounds(), true);
-        const Rectf drawBounds = Rectf(vec2(0, 0), videoRenderSize);
-        gl::draw(frameTexture, drawBounds);
+        const vec2 videoSize = video->getSize();
+        const vec2 actualDrawnSize = videoSize / getVideoScale();
+        const vec2 offsetInVideo = (videoSize - actualDrawnSize) * getVideoOffset();
+        
+        gl::draw(frameTexture, Area(offsetInVideo, offsetInVideo + actualDrawnSize), Rectf(ivec2(0, 0), getVideoRenderSize()));
     }
-
 }
-
+    
 void VideoHandler::handleResize()
 {
     if (!video) return;
@@ -60,11 +72,32 @@ void VideoHandler::handleResize()
     cout << "video is rendered at: " << videoRenderSize << " - window size is: " << windowSize << endl;
 }
 
-void VideoHandler::setLooping(bool shouldLoop)
+void VideoHandler::loopingUpdated()
 {
-    looping = shouldLoop;
     if (!video) return;
-    video->setLoop(shouldLoop);
+    video->setLoop(looping);
+}
+
+void VideoHandler::soundOnUpdated()
+{
+    if (!video) return;
+    video->setVolume(soundOn ? 1.0f : 0.0f);
+}
+
+vec2 VideoHandler::getVideoOffset() const
+{
+    return vec2(videoOffset[0], videoOffset[1]);
+}
+
+vec2 VideoHandler::getVideoScale() const
+{
+    return vec2(videoScale[0], videoScale[1]);
+}
+
+void VideoHandler::videoScaleUpdated()
+{
+    if (!video) return;
+    handleResize();
 }
 
 void VideoHandler::seekToFraction(float fraction /*0.0 to 1.0*/)

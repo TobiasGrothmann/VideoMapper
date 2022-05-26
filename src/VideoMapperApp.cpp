@@ -1,6 +1,7 @@
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
+#include "cinder/CinderImGui.h"
 
 // cinder block: Cinder-Warping
 #include "Warp.h"
@@ -39,10 +40,20 @@ public:
     WarpList warps;
 };
 
+void prepareSettings(VideoMapperApp::Settings *settings)
+{
+    settings->setWindowSize(ivec2(1080, 720));
+    settings->setHighDensityDisplayEnabled(true);
+    settings->setMultiTouchEnabled(false);
+    settings->setPowerManagementEnabled(false);
+    settings->disableFrameRate();
+    settings->setTitle("Video Mapper");
+}
+
 void VideoMapperApp::setup()
 {
-    disableFrameRate();
-    enablePowerManagement(false);
+    ImGui::Initialize();
+    
 //    hideCursor();
 
     // initialize warps
@@ -58,7 +69,7 @@ void VideoMapperApp::setup()
     }
     
     // load video
-    selectAndLoadNewVideo();
+//    selectAndLoadNewVideo();
     
     warps[0]->setSize(videoHandler.getVideoRenderSize());
 }
@@ -193,11 +204,41 @@ void VideoMapperApp::selectAndLoadNewVideo()
             cout << "Error: failed to load video selected at: " << videoFilePath << endl;
         }
     }
+    resize();
 }
 
 void VideoMapperApp::update()
 {
     videoHandler.update();
+    
+    // settings UI
+    ImGui::Begin("Settings");
+    if (ImGui::Button("open"))
+    {
+        selectAndLoadNewVideo();
+    }
+    if (ImGui::Checkbox("looping", &videoHandler.looping))
+    {
+        videoHandler.loopingUpdated();
+    }
+    if (ImGui::Checkbox("audio", &videoHandler.soundOn))
+    {
+        videoHandler.soundOnUpdated();
+    }
+    if (ImGui::DragFloat2("scale x/y", &videoHandler.videoScale[0], /*speed*/ 0.005f, /*min*/ 1.0f, /*max*/ 4.0f))
+    {
+        videoHandler.videoScaleUpdated();
+        resize();
+//        warps[0]->setSize(videoHandler.getVideoRenderSize());
+    }
+    if (ImGui::DragFloat2("offset x/y", &videoHandler.videoOffset[0], /*speed*/ 0.0025f, /*min*/ 0.0f, /*max*/ 1.0f))
+    {
+        videoHandler.videoScaleUpdated();
+        resize();
+//        warps[0]->setSize(videoHandler.getVideoRenderSize());
+    }
+    
+    ImGui::End();
 }
 
 void VideoMapperApp::draw()
@@ -212,4 +253,4 @@ void VideoMapperApp::draw()
     }
 }
 
-CINDER_APP(VideoMapperApp, RendererGl)
+CINDER_APP(VideoMapperApp, RendererGl, prepareSettings)

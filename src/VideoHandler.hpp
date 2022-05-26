@@ -5,8 +5,8 @@
 class VideoHandler
 {
 public:
-    
-    VideoHandler() = default;
+    VideoHandler();
+    ~VideoHandler() = default;
     
     bool load(const std::string& pathToVideoFile);
     void update();
@@ -14,7 +14,19 @@ public:
     
     void handleResize();
     
-    void setLooping(bool shouldLoop);
+    bool looping;
+    void loopingUpdated();
+    
+    bool soundOn;
+    void soundOnUpdated();
+    
+    float videoOffset[2];
+    cinder::vec2 getVideoOffset() const;
+    
+    float videoScale[2];
+    cinder::vec2 getVideoScale() const;
+    void videoScaleUpdated();
+    
     void seekToFraction(float fraction /*0.0 to 1.0*/);
     void seekToSeconds(float seconds);
     void setPlaying(bool shouldPlay);
@@ -31,6 +43,4 @@ private:
     cinder::qtime::MovieGlRef video;
     
     cinder::vec2 videoRenderSize;
-    
-    bool looping = false;
 };
