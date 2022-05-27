@@ -28,6 +28,7 @@ public:
     void mouseUp(MouseEvent event) override;
     
     void resize() override;
+    void handleResize();
 
     void update() override;
     void draw() override;
@@ -38,45 +39,41 @@ public:
     
     fs::path settingsFilePath;
     WarpList warps;
+    
+    WindowRef projectionWindow = {};
+    WindowRef settingsWindow = {};
+    
+    bool settingsIsOpen = true;
 };
 
 void prepareSettings(VideoMapperApp::Settings *settings)
 {
-    settings->setWindowSize(ivec2(1080, 720));
+    settings->setWindowSize(ivec2(450, 200));
     settings->setHighDensityDisplayEnabled(true);
     settings->setMultiTouchEnabled(false);
     settings->setPowerManagementEnabled(false);
     settings->disableFrameRate();
-    settings->setTitle("Video Mapper");
+    settings->setTitle("Video Mapper - Settings");
 }
 
 void VideoMapperApp::setup()
 {
     ImGui::Initialize();
-    
-//    hideCursor();
 
-    // initialize warps
-    settingsFilePath = getAssetPath("") / "warps.xml";
-    cout << "settings are at: " << settingsFilePath << endl;
-    if (fs::exists(settingsFilePath))
-    {
-        warps = Warp::readSettings(loadFile(settingsFilePath));
-    }
-    else
-    {
-        warps.push_back(WarpPerspective::create());
-    }
+    warps.push_back(WarpPerspective::create());
     
-    // load video
-//    selectAndLoadNewVideo();
+    settingsWindow = getWindow();
+    settingsWindow->getSignalClose().connect([this] { quit(); });
+    settingsWindow->setAlwaysOnTop();
     
-    warps[0]->setSize(videoHandler.getVideoRenderSize());
+    projectionWindow = createWindow(Window::Format().size(800, 500));
+    projectionWindow->getSignalClose().connect([this] { quit(); });
+    projectionWindow->setTitle("Video Mapper - Projection");
 }
+
 
 void VideoMapperApp::cleanup()
 {
-    Warp::writeSettings(warps, writeFile(settingsFilePath));
 }
 
 void VideoMapperApp::keyDown(KeyEvent event)
@@ -137,7 +134,7 @@ void VideoMapperApp::keyDown(KeyEvent event)
                 selectAndLoadNewVideo();
                 break;
             case KeyEvent::KEY_f:
-                setFullScreen(!isFullScreen());
+                projectionWindow->setFullScreen(!projectionWindow->isFullScreen());
                 break;
             case KeyEvent::KEY_v:
                 gl::enableVerticalSync(!gl::isVerticalSyncEnabled());
@@ -151,9 +148,20 @@ void VideoMapperApp::keyDown(KeyEvent event)
 
 void VideoMapperApp::resize()
 {
+    if (getWindow() == projectionWindow)
+    {
+        handleResize();
+    }
+}
+
+void VideoMapperApp::handleResize()
+{
+    videoHandler.setWindowSize(projectionWindow->getSize());
     videoHandler.handleResize();
-    warps[0]->setSize(videoHandler.getVideoRenderSize());
-    Warp::handleResize(warps);
+    if (videoHandler.isLoaded())
+    {
+        warps[0]->setSize(videoHandler.getVideoRenderSize());
+    }
 }
 
 void VideoMapperApp::mouseMove(MouseEvent event)
@@ -191,6 +199,7 @@ void VideoMapperApp::fileDrop(FileDropEvent event)
     {
         cout << "Error: failed to load dropped video at: " << event.getFile(0) << endl;
     }
+    handleResize();
 }
 
 void VideoMapperApp::selectAndLoadNewVideo()
@@ -204,19 +213,20 @@ void VideoMapperApp::selectAndLoadNewVideo()
             cout << "Error: failed to load video selected at: " << videoFilePath << endl;
         }
     }
-    resize();
+    handleResize();
 }
 
 void VideoMapperApp::update()
 {
-    videoHandler.update();
-    
-    // settings UI
-    ImGui::Begin("Settings");
-    if (ImGui::Button("open"))
+    ImGui::SetNextWindowPos(ImVec2(0, 0));
+    ImGui::SetNextWindowSize(settingsWindow->getSize() * ivec2(settingsWindow->getContentScale()));
+    ImGui::Begin("Settings", &settingsIsOpen, ImGuiWindowFlags_NoTitleBar);
+    ImGui::SetWindowFontScale(2.0f);
+    if (ImGui::Button("open (O)"))
     {
         selectAndLoadNewVideo();
     }
+    ImGui::NewLine();
     if (ImGui::Checkbox("looping", &videoHandler.looping))
     {
         videoHandler.loopingUpdated();
@@ -225,17 +235,25 @@ void VideoMapperApp::update()
     {
         videoHandler.soundOnUpdated();
     }
+    
+    ImGui::NewLine();
+    if (ImGui::Button("toggle edit mode (W)"))
+    {
+        Warp::enableEditMode(!Warp::isEditModeEnabled());
+    }
     if (ImGui::DragFloat2("scale x/y", &videoHandler.videoScale[0], /*speed*/ 0.005f, /*min*/ 1.0f, /*max*/ 4.0f))
     {
         videoHandler.videoScaleUpdated();
         resize();
-//        warps[0]->setSize(videoHandler.getVideoRenderSize());
     }
     if (ImGui::DragFloat2("offset x/y", &videoHandler.videoOffset[0], /*speed*/ 0.0025f, /*min*/ 0.0f, /*max*/ 1.0f))
     {
         videoHandler.videoScaleUpdated();
         resize();
-//        warps[0]->setSize(videoHandler.getVideoRenderSize());
+    }
+    if (ImGui::Button("toggle fullscreen (F)"))
+    {
+        projectionWindow->setFullScreen(!projectionWindow->isFullScreen());
     }
     
     ImGui::End();
@@ -243,13 +261,17 @@ void VideoMapperApp::update()
 
 void VideoMapperApp::draw()
 {
-    gl::clear(Color(0, 0, 0));
-    
-    for (const WarpRef& warp : warps)
+    if (getWindow() == projectionWindow)
     {
-        warp->begin();
-        videoHandler.draw();
-        warp->end();
+        videoHandler.update();
+        
+        gl::clear(Color(0, 0, 0));
+        for (const WarpRef& warp : warps)
+        {
+            warp->begin();
+            videoHandler.draw();
+            warp->end();
+        }
     }
 }
 

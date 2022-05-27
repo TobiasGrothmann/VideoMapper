@@ -7,6 +7,7 @@ using namespace std;
 VideoHandler::VideoHandler()
     : looping(true)
     , soundOn(false)
+    , windowSize(vec2(100, 100))
 {
     videoScale[0] = 1.0f;
     videoScale[1] = 1.0f;
@@ -53,11 +54,15 @@ void VideoHandler::draw()
         gl::draw(frameTexture, Area(offsetInVideo, offsetInVideo + actualDrawnSize), Rectf(ivec2(0, 0), getVideoRenderSize()));
     }
 }
-    
+
+void VideoHandler::setWindowSize(const cinder::vec2& newWindowSize)
+{
+    windowSize = newWindowSize;
+}
+
 void VideoHandler::handleResize()
 {
     if (!video) return;
-    const vec2 windowSize = getWindowSize();
     
     videoRenderSize = video->getSize();
     if (videoRenderSize.x > windowSize.x)

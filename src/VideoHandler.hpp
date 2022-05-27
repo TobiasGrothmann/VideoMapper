@@ -12,6 +12,7 @@ public:
     void update();
     void draw();
     
+    void setWindowSize(const cinder::vec2& windowSize);
     void handleResize();
     
     bool looping;
@@ -43,4 +44,5 @@ private:
     cinder::qtime::MovieGlRef video;
     
     cinder::vec2 videoRenderSize;
+    cinder::vec2 windowSize;
 };
